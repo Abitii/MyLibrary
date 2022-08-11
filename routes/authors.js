@@ -1,12 +1,12 @@
 const express = require('express')
-const { $where } = require('../models/author')
+// const { $where } = require('../models/author')
 const router = express.Router()
 const Author = require('../models/author')
 
 // All Authors Route
 router.get('/', async(req, res) =>{
     let searchOptions= {}
-    if (res.query.name != null && req.query.name !==''){
+    if (req.query.name != null && req.query.name !==''){
         searchOptions.name = new RegExp(req.query.name, 'i')
     }
     try{
@@ -21,7 +21,7 @@ router.get('/', async(req, res) =>{
 
 
     }
-    res.render("authors/index")
+    
 })
 
 // New Author Route
